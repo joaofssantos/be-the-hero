@@ -1,9 +1,11 @@
 @import '../../assets/globals/presets';
 
-
+.section {
+    justify-content: end;
+    @include section-content;
+}
 
 .profile {
-    justify-content: end;
     flex-direction: column;
 
     &-header {
@@ -112,18 +114,23 @@
                     right: 24px;
                     top: 24px;
                     transition: opacity .2s;
+                    cursor: pointer;
 
                     &:hover {
                         opacity: .8;
                     }
                 }
-div+div{
-   
-        margin-top: 32px;
-    
-}
-                &-title,&-description,&-price {
-                    
+
+                div+div {
+
+                    margin-top: 32px;
+
+                }
+
+                &-title,
+                &-description,
+                &-price {
+
                     h2 {
                         margin-bottom: 16px;
                         color: #41414d;

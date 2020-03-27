@@ -1,6 +1,7 @@
 @import '../../assets/globals/presets';
 
 .section {
+    justify-content: center;
   @include section-content;
 }
 
@@ -39,6 +40,7 @@
             &-submit {
                 cursor: pointer;
                 @include button;
+                @include w100;
                 margin-top: 16px;
             }
             &-input {

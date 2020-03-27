@@ -1,14 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, useHistory} from 'react-router-dom';
 
 import { FiArrowLeft } from 'react-icons/fi';
+
+import api from '../../services/api';
 
 import './styles.css';
 
 import logoImage from '../../assets/logo.svg'
 
 export default function Register() {
+
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [whatsapp, setWhatsapp] = useState('');
+    const [city, setCity] = useState('');
+    const [uf, setUf] = useState('');
+
+    const history = useHistory();
+
+    async function handleRegister(event) {
+        event.preventDefault();
+
+        const data =({
+            name,
+            email,
+            whatsapp,
+            city,
+            uf,
+        } )
+
+        try{
+            const response = await api.post('ongs', data);
+
+            alert(`Seu ID de acesso é: ${response.data.id}`);
+            history.push('/')
+        }catch(err){
+            alert('Erro no cadastro, tente novamente.');
+        }
+      
+    }
     return (
         <section className="section register">
 
@@ -31,28 +63,43 @@ export default function Register() {
                         </div>
                     </div>
                     <div className="register-content-item">
-                        <form className="register-content-form">
+                        <form className="register-content-form" onSubmit={handleRegister}>
                             <div className="register-content-form-group">
                                 <label htmlFor="" className="register-content-form-label w100">
-                                    <input type="text" placeholder="Nome da ONG" className="register-content-form-input" />
+                                    <input type="text"
+                                        placeholder="Nome da ONG"
+                                        className="register-content-form-input" value={name} onChange={event => setName(event.target.value)}
+                                    />
                                 </label>
                             </div>
                             <div className="register-content-form-group">
                                 <label htmlFor="" className="register-content-form-label w100">
-                                    <input type="email" placeholder="E-mail" className="register-content-form-input" />
+                                    <input type="email"
+                                        placeholder="E-mail"
+                                        className="register-content-form-input" value={email} onChange={event => setEmail(event.target.value)}
+                                    />
                                 </label>
                             </div>
                             <div className="register-content-form-group">
                                 <label htmlFor="" className="register-content-form-label w100">
-                                    <input type="text" placeholder="Whatsapp" className="register-content-form-input" />
+                                    <input type="text"
+                                        placeholder="Whatsapp"
+                                        className="register-content-form-input" value={whatsapp} onChange={event => setWhatsapp(event.target.value)}
+                                    />
                                 </label>
                             </div>
                             <div className="register-content-form-group">
                                 <label htmlFor="" className="register-content-form-label w75">
-                                    <input type="text" placeholder="Cidade" className="register-content-form-input" />
+                                    <input type="text"
+                                        placeholder="Cidade"
+                                        className="register-content-form-input" value={city} onChange={event => setCity(event.target.value)}
+                                    />
                                 </label>
                                 <label htmlFor="" className="register-content-form-label w20">
-                                    <input type="text" placeholder="UF" className="register-content-form-input" />
+                                    <input type="text"
+                                        placeholder="UF"
+                                        className="register-content-form-input" value={uf} onChange={event => setUf(event.target.value)}
+                                    />
                                 </label>
                             </div>
                             <div className="register-content-form-group">

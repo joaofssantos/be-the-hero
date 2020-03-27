@@ -1,6 +1,7 @@
 @import '../../assets/globals/presets';
 
 .section {
+    justify-content: center;
     @include section-content;
 }
 
@@ -91,6 +92,7 @@
             &-submit {
                 @include button;
                 margin-top: 16px;
+                @include w100;
             }
         }
     }
