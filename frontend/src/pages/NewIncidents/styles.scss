@@ -1,0 +1,144 @@
+@import '../../assets/globals/presets';
+
+
+
+.profile {
+    justify-content: end;
+    flex-direction: column;
+
+    &-header {
+        width: 100%;
+        display: flex;
+        max-width: 1120px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px 0 0 0;
+
+        &-group {
+            @include w50;
+            display: flex;
+            align-items: center;
+
+            &:nth-child(2) {
+
+                justify-content: flex-end;
+            }
+        }
+
+        &-logo {
+            img {
+                height: 64px;
+            }
+
+            margin-right: 32px;
+        }
+
+        &-tagname {
+            span {
+                font-size: 20px;
+            }
+        }
+
+        &-create {
+
+            display: flex;
+            align-items: center;
+
+            a {
+                @include button;
+                width: 260px;
+            }
+        }
+
+        &-logout {
+            margin-left: 24px;
+            display: flex;
+            align-items: center;
+
+            button {
+                height: 60px;
+                width: 60px;
+                border-radius: 4px;
+                background: transparent;
+                border: 1px solid $color-navy-gray;
+                transition: border-color .2s;
+
+                &:hover {
+                    border-color: #999;
+                }
+            }
+        }
+    }
+
+    &-content {
+        display: flex;
+        flex-direction: column;
+        padding: 0 0 64px 0;
+
+        &-title {
+            margin: 64px 0 32px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            @include w100;
+
+            h1 {
+                font-size: 32px;
+                color: $color-text;
+                font-weight: 700;
+            }
+        }
+
+        &-group {
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        &-list {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 24px;
+
+            &-incident {
+                background: #fff;
+                border-radius: 8px;
+                padding: 24px;
+                position: relative;
+
+                &-remove {
+                    position: absolute;
+                    right: 24px;
+                    top: 24px;
+                    transition: opacity .2s;
+
+                    &:hover {
+                        opacity: .8;
+                    }
+                }
+div+div{
+   
+        margin-top: 32px;
+    
+}
+                &-title,&-description,&-price {
+                    
+                    h2 {
+                        margin-bottom: 16px;
+                        color: #41414d;
+                        text-transform: uppercase;
+                        font-weight: 700;
+                    }
+
+                    h3 {
+                        color: $color-silver;
+                        font-size: 16px;
+                        line-height: 21px;
+                    }
+                }
+            }
+
+        }
+    }
+}

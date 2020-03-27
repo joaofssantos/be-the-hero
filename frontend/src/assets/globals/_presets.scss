@@ -1,0 +1,204 @@
+//colors
+
+$color-main: #e02041;
+
+$color-text : #333;
+$color-silver : #737380;
+$color-black : #000000;
+$color-white : #FFFFFF;
+$color-red : #e02041;
+$color-gray : #f0f0f5;
+$color-navy-gray : #dcdce6;
+
+// placeholders
+@mixin button {
+    @include w100;
+    height: 60px;
+    background: $color-main;
+    border: 0;
+    border-radius: 8px;
+    color: $color-white;
+    font-weight: 700;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 60px;
+    transition: filter .2s;
+    &:hover {
+        filter: brightness(90%);
+    }
+}
+@mixin input {
+    border: 1px solid $color-navy-gray;
+    height: 60px;
+    color: $color-text;
+    border-radius: 8px;
+    padding: 0 24px;
+    background: $color-white;
+}
+@mixin w100{
+    width: 100%;
+}
+@mixin w80{
+    width: 80%;
+}
+@mixin w50{
+    width: 50%;
+}
+@mixin w25{
+    width: 25%;
+}
+@mixin w20{
+    width: 20%;
+}
+@mixin w75{
+    width: 75%;
+}
+
+@mixin backlink{
+    margin: 32px 0 0 0;
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: baseline;
+        color: $color-text;
+        font-weight: 500;
+        font-size: 14px;
+        svg {
+            margin: 0 6px 0 0;
+        }
+    }
+}
+
+
+@mixin section-content{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 1120px;
+    }
+}
+
+
+input,
+button,
+textarea {
+    font: 400 18px Roboto, sans-serif;
+    border: unset;
+    box-shadow: unset;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+
+
+button {
+    cursor: pointer;
+    box-shadow: unset;
+    border: unset;
+}
+
+
+//rem
+
+/**
+ * https://github.com/pierreburel/sass-rem
+ */
+$rem-baseline: 16px !default;
+$rem-fallback: true !default;
+$rem-px-only: false !default;
+
+@function rem-separator($list, $separator: false) {
+    @if $separator=="comma"or $separator=="space" {
+        @return append($list, null, $separator);
+    }
+
+    @if function-exists("list-separator")==true {
+        @return list-separator($list);
+    }
+
+    // list-separator polyfill by Hugo Giraudel (https://sass-compatibility.github.io/#list_separator_function)
+    $test-list: ();
+
+    @each $item in $list {
+        $test-list: append($test-list, $item, space);
+    }
+
+    @return if($test-list==$list, space, comma);
+}
+
+@mixin rem-baseline($zoom: 100%) {
+    font-size: $zoom / 16px * $rem-baseline;
+}
+
+@function rem-convert($to, $values...) {
+    $result: ();
+    $separator: rem-separator($values);
+
+    @each $value in $values {
+        @if type-of($value)=="number"and unit($value)=="rem"and $to=="px" {
+            $result: append($result, $value / 1rem * $rem-baseline + 0px, $separator);
+        }
+
+        @else if type-of($value)=="number"and unit($value)=="px"and $to=="rem" {
+            $result: append($result, $value / $rem-baseline + 0rem, $separator);
+        }
+
+        @else if type-of($value)=="list" {
+            $value-separator: rem-separator($value);
+            $value: rem-convert($to, $value...);
+            $value: rem-separator($value, $value-separator);
+            $result: append($result, $value, $separator);
+        }
+
+        @else {
+            $result: append($result, $value, $separator);
+        }
+    }
+
+    @return if(length($result)==1, nth($result, 1), $result);
+}
+
+@function rem($values...) {
+    @if $rem-px-only {
+        @return rem-convert(px, $values...);
+    }
+
+    @else {
+        @return rem-convert(rem, $values...);
+    }
+}
+
+@mixin rem($properties, $values...) {
+    @if type-of($properties)=="map" {
+        @each $property in map-keys($properties) {
+            @include rem($property, map-get($properties, $property));
+        }
+    }
+
+    @else {
+        @each $property in $properties {
+            @if $rem-fallback or $rem-px-only {
+                #{$property}: rem-convert(px, $values...);
+            }
+
+            @if not $rem-px-only {
+                #{$property}: rem-convert(rem, $values...);
+            }
+        }
+    }
+}

@@ -1,0 +1,99 @@
+input,
+button,
+textarea {
+  font: 400 18px Roboto, sans-serif;
+  border: unset;
+  box-shadow: unset; }
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box; }
+
+button {
+  cursor: pointer;
+  box-shadow: unset;
+  border: unset; }
+
+/**
+ * https://github.com/pierreburel/sass-rem
+ */
+.section {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .section-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1120px; }
+
+.logon-content-info {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10% 0 0;
+  max-width: 350px;
+  width: 100%; }
+  .logon-content-info-item {
+    display: flex;
+    flex-direction: column; }
+  .logon-content-info-logo {
+    display: flex;
+    align-items: center; }
+  .logon-content-info-signup {
+    margin: 32px 0 0 0; }
+    .logon-content-info-signup a {
+      display: flex;
+      align-items: center;
+      justify-content: baseline;
+      color: #333;
+      font-weight: 500;
+      font-size: 14px; }
+      .logon-content-info-signup a svg {
+        margin: 0 6px 0 0; }
+
+.logon-content-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px; }
+  .logon-content-form-title {
+    margin-bottom: 30px; }
+    .logon-content-form-title h1 {
+      font-size: 26px;
+      color: #333;
+      font-weight: 700; }
+  .logon-content-form-submit {
+    cursor: pointer;
+    width: 100%;
+    height: 60px;
+    background: #e02041;
+    border: 0;
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-weight: 700;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 60px;
+    transition: filter .2s;
+    margin-top: 16px; }
+    .logon-content-form-submit:hover {
+      filter: brightness(90%); }
+  .logon-content-form-input {
+    border: 1px solid #dcdce6;
+    height: 60px;
+    color: #333;
+    border-radius: 8px;
+    padding: 0 24px;
+    background: #FFFFFF;
+    width: 100%; }
+
+.logon-content-image {
+  display: flex;
+  align-items: center;
+  justify-content: center; }

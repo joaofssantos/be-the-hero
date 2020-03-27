@@ -1,0 +1,117 @@
+input,
+button,
+textarea {
+  font: 400 18px Roboto, sans-serif;
+  border: unset;
+  box-shadow: unset; }
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box; }
+
+button {
+  cursor: pointer;
+  box-shadow: unset;
+  border: unset; }
+
+/**
+ * https://github.com/pierreburel/sass-rem
+ */
+.section {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .section-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1120px; }
+
+.register-content-box {
+  box-shadow: 0 0px 100px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  padding: 96px;
+  background: #f0f0f5;
+  width: 100%; }
+
+.register-content-info {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10% 0 0;
+  max-width: 380px;
+  width: 100%; }
+
+.register-content-title {
+  margin: 64px 0 32px; }
+  .register-content-title h1 {
+    font-size: 32px;
+    color: #333;
+    font-weight: 700; }
+
+.register-content-text p {
+  font-size: 18px;
+  color: #737380;
+  line-height: 32px; }
+
+.register-content-back {
+  margin: 32px 0 0 0; }
+  .register-content-back a {
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    color: #333;
+    font-weight: 500;
+    font-size: 14px; }
+    .register-content-back a svg {
+      margin: 0 6px 0 0; }
+
+.register-content-item {
+  width: 100%;
+  max-width: 450px; }
+
+.register-content-form {
+  width: 100%; }
+  .register-content-form-group {
+    margin-top: 8px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; }
+  .register-content-form-label.w100 {
+    width: 100%; }
+  .register-content-form-label.w75 {
+    width: 75%; }
+  .register-content-form-label.w20 {
+    width: 20%; }
+  .register-content-form-input {
+    border: 1px solid #dcdce6;
+    height: 60px;
+    color: #333;
+    border-radius: 8px;
+    padding: 0 24px;
+    background: #FFFFFF;
+    width: 100%; }
+  .register-content-form-submit {
+    width: 100%;
+    height: 60px;
+    background: #e02041;
+    border: 0;
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-weight: 700;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 60px;
+    transition: filter .2s;
+    margin-top: 16px; }
+    .register-content-form-submit:hover {
+      filter: brightness(90%); }

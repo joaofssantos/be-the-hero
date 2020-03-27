@@ -1,0 +1,97 @@
+@import '../../assets/globals/presets';
+
+.section {
+    @include section-content;
+}
+
+.register {
+    &-content {
+        &-box {
+
+            box-shadow: 0 0px 100px rgba($color: $color-black, $alpha: .2);
+            border-radius: 8px;
+            justify-content: space-between;
+            display: flex;
+            align-items: center;
+            padding: 96px;
+            background: $color-gray;
+            @include w100;
+
+        }
+
+        &-info {
+            display: flex;
+            flex-direction: column;
+            margin: 0 10% 0 0;
+            max-width: 380px;
+            @include w100;
+        }
+
+        &-logo {
+            img {}
+        }
+
+        &-title {
+            margin: 64px 0 32px;
+
+            h1 {
+                font-size: 32px;
+                color: $color-text;
+                font-weight: 700;
+            }
+        }
+
+        &-text {
+            p {
+                font-size: 18px;
+                color: $color-silver;
+                line-height: 32px;
+            }
+        }
+
+        &-back {
+            @include backlink;
+        }
+
+        &-item {
+            @include w100;
+            max-width: 450px;
+        }
+
+        &-form {
+            @include w100;
+
+            &-group {
+                margin-top: 8px;
+                @include w100;
+                display: flex;
+                justify-content: space-between;
+
+            }
+
+            &-label {
+                &.w100 {
+                    @include w100;
+                }
+
+                &.w75 {
+                    @include w75;
+                }
+
+                &.w20 {
+                    @include w20;
+                }
+            }
+
+            &-input {
+                @include input;
+                @include w100;
+            }
+
+            &-submit {
+                @include button;
+                margin-top: 16px;
+            }
+        }
+    }
+}

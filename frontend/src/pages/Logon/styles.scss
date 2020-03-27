@@ -1,0 +1,55 @@
+@import '../../assets/globals/presets';
+
+.section {
+  @include section-content;
+}
+
+.logon {
+    &-content {
+        &-info {
+            display: flex;
+            flex-direction: column;
+            margin: 0 10% 0 0;
+            max-width: 350px;
+            @include w100;
+            &-item {
+                display: flex;
+                flex-direction: column;
+            }
+            &-logo {
+                display: flex;
+                align-items: center;
+            }
+            &-signup {
+               @include backlink;
+            }
+        }
+        &-form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 100px;
+            &-title {
+                margin-bottom: 30px;
+                h1 {
+                    font-size: 26px;
+                    color: $color-text;
+                    font-weight: 700;
+                }
+            }
+            &-submit {
+                cursor: pointer;
+                @include button;
+                margin-top: 16px;
+            }
+            &-input {
+                @include input;
+                @include w100;
+            }
+        }
+        &-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
