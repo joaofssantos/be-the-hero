@@ -14,6 +14,7 @@ module.exports = {
             .select([
                 'incidents.*',
                 'ongs.email',
+                'ongs.name',
                 'ongs.whatsapp',
                 'ongs.city',
                 'ongs.uf']);
